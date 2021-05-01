@@ -30,7 +30,14 @@ async def bad(ctx):
 @client.command(aliases = ['Okay'])
 async def okay(ctx):
   await ctx.send("That's nice! Stick around and your day is going to be better than ever!")
-#add more commands
+
+@client.command(aliases = ['anime'])
+async def anime(ctx):
+  await ctx.send("You like anime? Me too! Name a genre you want, and i'll reccomend you some animes in that genre! All you have to do is type, /action, /romance, /horror, /mystery")
+
+@client.command(aliases = ['action'])
+async def action(ctx):
+  await ctx.send("Some action animes are: One Piece, Naruto, Jujutsu Kaisen, Dororo, Demon Slayer, Hunter x Hunter, Attack on Titan, Tokyo Ghoul, Assasination Classroom")
 
 #add to the list of commands
 @client.command()
