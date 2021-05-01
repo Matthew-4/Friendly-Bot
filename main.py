@@ -21,6 +21,7 @@ async def on_ready():
 async def hello(ctx):
   await ctx.send("Hey there! How are you doing?")
   check = True
+  global check
 
 
 #add more aliases
@@ -28,6 +29,7 @@ async def hello(ctx):
 async def good(ctx):
   await ctx.send("That's great! I wish you the best!")
   check = True
+  global check
 
 #add 'bad' command
 
@@ -38,6 +40,7 @@ async def good(ctx):
 async def help(ctx):
   await ctx.send("Here are a list of some things you can ask me or command me to do: ")
   check = True
+  global check
   for command in command_list:
     await ctx.send(command)
   await ctx.sent("You can also say things similar to the words above.")
@@ -56,3 +59,5 @@ async def on_message(message):
   
 
 #add connection to the discord bot
+client.run(os.getenv('TOKEN'))
+message_client.run(os.getenv('TOKEN'))
