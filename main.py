@@ -31,9 +31,26 @@ async def good(ctx):
   check = True
   global check
 
-#add 'bad' command
 
-#add more commands
+
+async def anime(ctx):
+  await ctx.send("You like anime? Me too! Name a genre you want, and i'll reccommend you some animes in that genre! All you have to do is type, /action, /romance, /horror, /other")
+
+@client.command(aliases = ['action'])
+async def action(ctx):
+  await ctx.send("Some action animes are: One Piece, Naruto, Jujutsu Kaisen, Black Clover, Dororo, Demon Slayer, Hunter x Hunter, Attack on Titan, Tokyo Ghoul, Assasination Classroom")
+
+@client.command(aliases = ['romance'])
+async def romance(ctx):
+  await ctx.send("Some romance animes are: Rascal Does Not Dream of Bunny Girl Senpai, Silent Voice, Your Lie in April, Oregairu, Your Name, Fly Me To The Moon, FireWorks, Plastic Memories")
+
+@client.command(aliases = ['horror'])
+async def horror(ctx):
+  await ctx.send("Some horror animes are: Beyond the Boundary, Blue Exorcist, Full Metal Alchemist, Another, The Promised Neverland")
+
+@client.command(aliases = ['other'])
+async def other(ctx):
+  await ctx.send("Death Note, Code Geass: LeLouch of Rebellion, Dr.Stone, Tower of God, Classroom of Elite, Darling in the Franxx, Fairy Tail, Wise Mans Grandchild, Haikyuu!, Kuroko's Basketball")
 
 #add to the list of commands
 @client.command()
