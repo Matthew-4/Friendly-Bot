@@ -9,7 +9,6 @@ from replit import db
 #sets the prefix to all commands to "/"
 prefix = '/'
 client = commands.Bot(command_prefix = prefix)
-command_list = ['/hello', '/help', '/good', '/bad', '/okay', '/anime']
 check = False
 
 #tells us when the bot is ready
@@ -76,9 +75,13 @@ async def other(ctx):
 @client.command()
 async def bot_help(ctx):
   await ctx.send("Here are a list of some things you can ask me or command me to do: ")
-  for command in command_list:
-    await ctx.send(command)
-    await ctx.sent("You can also say things similar to the words above.")
+  await ctx.send("/hello")
+  await ctx.send("/bot_help")
+  await ctx.send("/good")
+  await ctx.send("/bad")
+  await ctx.send("/okay")
+  await ctx.send("/anime")
+  await ctx.send("You can also say things similar to the words above.")
   global check
   check = True
 
@@ -96,10 +99,13 @@ async def on_message(message):
   if message.author == client.user:
     return
 
-  if check == True:
-    check = False
-  else:
-    await message.channel.send("Sorry, I couldn't process that command. Please type '/bot_help' for a list of commands!")
+  msg = message.content
+  
+  if msg[0] == '/':
+    if check == True:
+      check = False
+    else:
+      await message.channel.send("Sorry, I couldn't process that command. Please type '/bot_help' for a list of commands!")
 
 #connection to the discord bot
 client.run(os.environ['TOKEN'])
