@@ -30,9 +30,9 @@ async def good(ctx):
   global check
   check = True
 
-@client.command(aliases = ['Bad'])
+@client.command(aliases = ['Bad', 'terrible', 'Terrible', 'horrible', 'Horrible'])
 async def bad(ctx):
-  await ctx.send("Sorry to hear that :(! Hope it gets better!")
+  await ctx.send("Sorry to hear that :( Hope it gets better!")
   global check
   check = True
 
@@ -90,6 +90,7 @@ async def clear(ctx, amount = 10):
 
 @client.event
 async def on_message(message):
+  await client.process_commands(message)
   global check
 
   if message.author == client.user:
@@ -99,8 +100,6 @@ async def on_message(message):
     check = False
   else:
     await message.channel.send("Sorry, I couldn't process that command. Please type '/bot_help' for a list of commands!")
-
-
 
 #connection to the discord bot
 client.run(os.environ['TOKEN'])
