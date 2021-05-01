@@ -60,4 +60,4 @@ async def help(ctx):
 
 
 
-#add connection to the discord bot
+#add connection to the discord bot 
