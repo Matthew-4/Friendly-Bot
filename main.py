@@ -17,6 +17,10 @@ check = False
 async def on_ready():
   print("Bot is ready")
 
+@message_client.event
+async def message_client_ready():
+  print("Message client ready")
+
 @client.command(aliases = ['hi', 'Hi', 'Hello', 'sup', 'hey', 'Hey', 'Sup', 'wassup', 'Wassup'])
 async def hello(ctx):
   await ctx.send("Hey there! How are you doing?")
@@ -87,5 +91,5 @@ async def on_message(message):
   
 
 #add connection to the discord bot
-client.run(os.getenv('TOKEN'))
-message_client.run(os.getenv('TOKEN'))
+client.run(os.environ['TOKEN'])
+message_client.run(os.environ['TOKEN'])
