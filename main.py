@@ -23,8 +23,13 @@ async def hello(ctx):
 async def good(ctx):
   await ctx.send("That's great! I wish you the best!")
 
-#add 'bad' command
+@client.command(aliases = ['Bad'])
+async def bad(ctx):
+  await ctx.send("Sorry to hear that :(! Hope it gets better!")
 
+@client.command(aliases = ['Okay'])
+async def okay(ctx):
+  await ctx.send("That's nice! Stick around and your day is going to be better than ever!")
 #add more commands
 
 #add to the list of commands
@@ -33,6 +38,7 @@ async def help(ctx):
   await ctx.send("Here are a list of some things you can ask me or command me to do: ")
   await ctx.send("/hello (or other greetings)")
   await ctx.send("/good, /bad - generic responses to 'How are you doing?'")
+
 
 
 #add connection to the discord bot
